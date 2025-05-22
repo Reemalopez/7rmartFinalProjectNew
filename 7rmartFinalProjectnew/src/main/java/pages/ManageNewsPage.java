@@ -43,7 +43,7 @@ public class ManageNewsPage {
 	}
 
 	
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath="//i[@class='icon fas fa-check']")
 	private WebElement alerbox;
 	
 	public boolean alertboxVisiblity() {

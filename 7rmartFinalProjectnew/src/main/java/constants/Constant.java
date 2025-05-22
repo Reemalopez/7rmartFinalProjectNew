@@ -1,5 +1,7 @@
 package constants;
 
 public class Constant {
-public static String TESTIMAGEPATH="C:\\Users\\reema\\eclipse-workspace\\7rmartFinalProjectnew\\src\\test\\resources\\NewTshirt.jpg";
+	
+public static String TESTIMAGEPATH=System.getProperty("user.dir")+"\\src\\test\\resources\\NewTshirt.jpg";
+public static String TESTSHEETPATH=System.getProperty("user.dir")+"\\src\\test\\resources\\7rmartFinalProject_TestData.xlsx";
 }

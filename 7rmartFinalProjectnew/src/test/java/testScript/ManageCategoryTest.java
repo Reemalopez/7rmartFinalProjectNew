@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import baseClass.Base;
+import constants.Messages;
 import pages.LoginPage;
 import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
@@ -32,7 +33,7 @@ public class ManageCategoryTest extends Base {
 		managecategory.uploadImage();
 		managecategory.saveCategory();
 		boolean alertmessage=managecategory.getAlertMessageForSuccessfullCategoryCreation();
-		Assert.assertTrue(alertmessage,"User unable to Create new Category");
+		Assert.assertTrue(alertmessage,Messages.ADDCATEGORYERROR);
 
 	}
 
@@ -52,6 +53,6 @@ public class ManageCategoryTest extends Base {
 		managecategory.clickOnSearchCategoryButton();
 		String Expected="Active";
 		String actual=managecategory.getSearchedCategoryMessage();
-		Assert.assertEquals(actual,Expected,"Unable to fetch category details");
+		Assert.assertEquals(actual,Expected,Messages.SEARCHCATEGORYERROR);
 	}
 }

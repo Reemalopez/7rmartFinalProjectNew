@@ -12,7 +12,7 @@ import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 
-	@Test(description = "Verifying user login with valid credentials")
+	@Test(description = "Verifying user login with valid credentials",priority=1)
 	public void verifyUserLoginWithValidCredentials() throws IOException {
 		String username = ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.getStringData(1, 1, "LoginPage");
@@ -23,14 +23,14 @@ public class LoginTest extends Base {
 		String expected = "Dashboard";
 		String actual = login.getDashboardText();
 		Assert.assertEquals(actual, expected, Messages.VALIDCREDENTIALERROR);
-
+		//,retryAnalyzer=retry.Retry.class -add this code to implement retry,iside the @Test tag
 	}
 
 	@Test(description = "Verify the login with Valid username and invalid password")
 	public void verifyUserLoginWithValidUsernameAndInvalidPassword() throws IOException {
-		String username = ExcelUtility.getStringData(1, 0, "LoginPage");
-		String password = ExcelUtility.getStringData(1, 1, "LoginPage");
-
+		String username = ExcelUtility.getStringData(2, 0, "LoginPage");
+		String password = ExcelUtility.getStringData(2, 1, "LoginPage");
+	
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username);
 		login.enterPasswordOnPasswordField(password);
@@ -42,8 +42,8 @@ public class LoginTest extends Base {
 
 	@Test(description = "Verify the login with invalid username and valid password")
 	public void verifyUserLoginWithInvalidUsernameAndValidPassword() throws IOException {
-		String username = ExcelUtility.getStringData(2, 0, "LoginPage");
-		String password = ExcelUtility.getStringData(2, 1, "LoginPage");
+		String username = ExcelUtility.getStringData(3, 0, "LoginPage");
+		String password = ExcelUtility.getStringData(3, 1, "LoginPage");
 
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username);
@@ -56,8 +56,8 @@ public class LoginTest extends Base {
 
 	@Test(description = "Verify the login with invalid credentials")
 	public void verifyUserLoginWithInvalidCredentials() throws IOException {
-		String username = ExcelUtility.getStringData(3, 0, "LoginPage");
-		String password = ExcelUtility.getStringData(3, 1, "LoginPage");
+		String username = ExcelUtility.getStringData(4, 0, "LoginPage");
+		String password = ExcelUtility.getStringData(4, 1, "LoginPage");
 
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username);

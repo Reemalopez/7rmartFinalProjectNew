@@ -9,4 +9,6 @@ public class Messages {
 	public static final String ADDNEWSERROR="Unable to create the News";
 	public static final String ADDUSERERROR="Unable to add new User";
 	public static final String SEARCHUSERERROR="Unable to find the User";
+	public static final String ADDCATEGORYERROR="Unable to add new User";
+	public static final String SEARCHCATEGORYERROR="Unable to find the User";
 }

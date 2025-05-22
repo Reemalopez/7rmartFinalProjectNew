@@ -14,7 +14,7 @@ import utilities.ExcelUtility;
 public class ManageNewsTest extends Base {
 
 	@Test(description = "Verify whether user able to add new News")
-	public void verifyNavigationToManageNews() throws IOException {
+	public void verifyAddNews() throws IOException {
 		String username = ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.getStringData(1, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
