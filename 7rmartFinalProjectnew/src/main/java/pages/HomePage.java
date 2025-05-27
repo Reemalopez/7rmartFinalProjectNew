@@ -21,12 +21,14 @@ public class HomePage {
 	@FindBy(xpath = "//p[@class='login-box-msg']")
 	private WebElement signinpagetitle;
 
-	public void clickOnAdminlink() {
+	public HomePage clickOnAdminlink() {
 		Admin.click();
+		return this;
 	}
 
-	public void clickOnLogout() {
+	public LoginPage clickOnLogout() {
 		Logout.click();
+		return new LoginPage(driver);
 	}
 
 	public String getsigninpagetitle() {

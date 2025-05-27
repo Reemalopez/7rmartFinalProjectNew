@@ -7,15 +7,14 @@
 	<test thread-count="5" name="Test">
 	<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testScript.HomeTest" />
+			<class name="testScript.LoginTest">
+			<methods>
+			<include name="verifyUserLoginWithInvalidCredentials"></include>
+			</methods>
+			</class>
 		</classes>
 	</test> 
-	<test thread-count="5" name="Test2">
-	<parameter name="browser" value="chrome"></parameter>
-		<classes>
-			<class name="testScript.ManageNewsTest" />
-		</classes>
-	</test> <!--
+	 <!--
 	Test -->
 </suite> <!--
 Suite -->

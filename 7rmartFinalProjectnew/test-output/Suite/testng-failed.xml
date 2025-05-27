@@ -4,16 +4,16 @@
   <listeners>
     <listener class-name="listeners.Listener"/>
   </listeners>
-  <test thread-count="5" name="Test2(failed)">
+  <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testScript.ManageNewsTest">
+      <class name="testScript.LoginTest">
         <methods>
           <include name="initializebrowser"/>
-          <include name="verifyAddNews"/>
+          <include name="verifyUserLoginWithInvalidCredentials" invocation-numbers="0"/>
           <include name="driverQuit"/>
         </methods>
-      </class> <!-- testScript.ManageNewsTest -->
+      </class> <!-- testScript.LoginTest -->
     </classes>
-  </test> <!-- Test2(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

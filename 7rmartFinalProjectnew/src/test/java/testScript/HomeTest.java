@@ -12,6 +12,8 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class HomeTest extends Base {
+	
+	HomePage homepage;
 
 	@Test(description = "Verify whether user able to logout from home page")
 	public void verifyUserLogoutFromHomepage() throws IOException {
@@ -19,13 +21,10 @@ public class HomeTest extends Base {
 		String username = ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.getStringData(1, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameOnUsernameField(username);
-		login.enterPasswordOnPasswordField(password);
-		login.clickOnsubmit();
-
-		HomePage homepage = new HomePage(driver);
+		login.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password);
+		homepage=login.clickOnsubmit();
 		homepage.clickOnAdminlink();
-		homepage.clickOnLogout();
+		login=homepage.clickOnLogout();
 
 		String expected = "Sign in to start your session";
 		String actual = homepage.getsigninpagetitle();

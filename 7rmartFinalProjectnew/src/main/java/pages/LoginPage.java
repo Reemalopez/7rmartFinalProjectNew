@@ -5,8 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 public class LoginPage {
-	
+	WaitUtility wait=new WaitUtility();
 	public WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
@@ -23,16 +25,20 @@ public class LoginPage {
 	private WebElement SignIn;
 
 
-	public void enterUsernameOnUsernameField(String username) {
+	public LoginPage enterUsernameOnUsernameField(String username) {
 		usernamefield.sendKeys(username);
+		return this;
 	}
 
-	public void enterPasswordOnPasswordField(String password) {
+	public LoginPage enterPasswordOnPasswordField(String password) {
 		passwordfield.sendKeys(password);
+		return this;
 	}
 
-	public void clickOnsubmit() {
+	public HomePage clickOnsubmit() {
+		wait.waitUntilClickable(driver, SignIn);
 		SignIn.click();
+		return new HomePage(driver);
 	}
 	
 	
