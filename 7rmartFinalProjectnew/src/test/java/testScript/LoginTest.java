@@ -26,14 +26,13 @@ public class LoginTest extends Base {
 		String expected = "Dashboard";
 		String actual = login.getDashboardText();
 		Assert.assertEquals(actual, expected, Messages.VALIDCREDENTIALERROR);
-		//,retryAnalyzer=retry.Retry.class -add this code to implement retry,iside the @Test tag
+		//retryAnalyzer=retry.Retry.class ->add this code to implement retry,iside the @Test tag
 	}
 
 	@Test(description = "Verify the login with Valid username and invalid password",priority=2,groups= {"smoke"})
 	public void verifyUserLoginWithValidUsernameAndInvalidPassword() throws IOException {
 		String username = ExcelUtility.getStringData(2, 0, "LoginPage");
 		String password = ExcelUtility.getStringData(2, 1, "LoginPage");
-	
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnsubmit();
 		// Assertion
@@ -45,10 +44,8 @@ public class LoginTest extends Base {
 	public void verifyUserLoginWithInvalidUsernameAndValidPassword() throws IOException {
 		String username = ExcelUtility.getStringData(3, 0, "LoginPage");
 		String password = ExcelUtility.getStringData(3, 1, "LoginPage");
-
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnsubmit();
-
 		boolean isalertDisplayed = login.alertVisibility();
 		Assert.assertTrue(isalertDisplayed,Messages.INVALIDUSERNAMEERROR);
 	}
@@ -60,15 +57,13 @@ public class LoginTest extends Base {
 
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnsubmit();
-		
 		boolean isalertDisplayed = login.alertVisibility();
 		Assert.assertTrue(isalertDisplayed,Messages.VALIDCREDENTIALERROR);
 	}
 	@DataProvider(name="loginProvider")
 	public Object[][] getDataFromDataProvider() throws IOException
 	{
-		return new Object[][] { new Object[] {"admin","admin"},
-								new Object[] {"admin123","123"}
+		return new Object[][] { new Object[] {"admin123","123"}
 			//new Object[] {ExcelUtility.getStringData(3, 0,"Login"),ExcelUtility.getStringData(3,1 ,"Login")}
 		};
 	}

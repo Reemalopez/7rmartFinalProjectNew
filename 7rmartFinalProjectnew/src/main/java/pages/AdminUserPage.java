@@ -15,8 +15,7 @@ public class AdminUserPage {
 
 	}
 
-	@FindBy(xpath = "//a[@class='small-box-footer' and @href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
-	private WebElement Adminuserlink;
+	
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	private WebElement NewLink;
 	@FindBy(xpath = "//input[@id='username']")
@@ -28,30 +27,33 @@ public class AdminUserPage {
 	@FindBy(xpath = "//button[@type='submit' and @name='Create']")
 	private WebElement savebutton;
 
-	public void clickOnAdminuser() {
-		Adminuserlink.click();
-	}
+	
 
-	public void clickOnNew() {
+	public AdminUserPage clickOnNew() {
 
 		NewLink.click();
+		return this;
 	}
 
-	public void enternewusernameOnField(String user) {
+	public AdminUserPage enternewusernameOnField(String user) {
 		UsernameNew.sendKeys(user);
+		return this;
 	}
 
-	public void enternewPasswordOntheField(String pass) {
+	public AdminUserPage enternewPasswordOntheField(String pass) {
 		PasswordNew.sendKeys(pass);
+		return this;
 	}
 
-	public void selectUserType() {
+	public AdminUserPage selectUserType() {
 		Select select = new Select(Usertypedropdown);
 		select.selectByIndex(1);
+		return this;
 	}
 
-	public void clickOnsavebutton() {
+	public AdminUserPage clickOnsavebutton() {
 		savebutton.click();
+		return this;
 	}
 
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
@@ -63,21 +65,25 @@ public class AdminUserPage {
 	@FindBy(xpath = "//button[@type='submit' and @name='Search']")
 	private WebElement searchbutton;
 
-	public void searchForCreatedUser() {
+	public AdminUserPage searchForCreatedUser() {
 		searchButton.click();
+		return this;
 	}
 
-	public void searchForUser(String searchusername) {
+	public AdminUserPage searchForUser(String searchusername) {
 		searchuser.sendKeys(searchusername);
+		return this;
 	}
 
-	public void selectUserTypesearch(String Admin) {
+	public AdminUserPage selectUserTypesearch(String Admin) {
 		Select select = new Select(searchusertype);
 		select.selectByVisibleText(Admin);
+		return this;
 	}
 
-	public void searchUser() {
+	public AdminUserPage searchUser() {
 		searchbutton.click();
+		return this;
 	}
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	private WebElement successmessage;

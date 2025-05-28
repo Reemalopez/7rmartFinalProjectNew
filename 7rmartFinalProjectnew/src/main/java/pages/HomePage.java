@@ -20,6 +20,12 @@ public class HomePage {
 	private WebElement Logout;
 	@FindBy(xpath = "//p[@class='login-box-msg']")
 	private WebElement signinpagetitle;
+	@FindBy(xpath = "//a[@class='small-box-footer' and @href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
+	private WebElement adminuserlink;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='active nav-link']")
+	private WebElement managenewsicon;
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='active nav-link']")
+	private WebElement managecategoryfield;
 
 	public HomePage clickOnAdminlink() {
 		Admin.click();
@@ -34,5 +40,17 @@ public class HomePage {
 	public String getsigninpagetitle() {
 		return signinpagetitle.getText();
 
+	}
+	public AdminUserPage clickOnAdminuser() {
+		adminuserlink.click();
+		return new AdminUserPage(driver);
+	}
+	public ManageNewsPage clickOnManageNewsIcon() {
+		managenewsicon.click();
+		return new ManageNewsPage(driver);			
+	}
+	public ManageCategoryPage clickOnManageCategoryField() {
+		managecategoryfield.click();
+		return new ManageCategoryPage(driver);
 	}
 }

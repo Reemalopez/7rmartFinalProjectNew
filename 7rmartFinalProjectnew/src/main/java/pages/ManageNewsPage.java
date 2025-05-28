@@ -15,8 +15,7 @@ public class ManageNewsPage {
 	}
 
 	
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='active nav-link']")
-	private WebElement managenewsicon;
+	
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/news/add']")
 	private WebElement addnewsbutton;
 	@FindBy(xpath = "//textarea[@class=\'form-control\']")
@@ -26,27 +25,28 @@ public class ManageNewsPage {
 	
 	
 
-	public void clickOnManageNewsIcon() {
-		managenewsicon.click();			
-	}
+	
 
-	public void clickaddnewsbutton() {
+	public ManageNewsPage clickaddnewsbutton() {
 		addnewsbutton.click();
+		return this;
 	}
 
-	public void enternewsonnewstextbox(String testnewsdata) {
+	public ManageNewsPage enternewsonnewstextbox(String testnewsdata) {
 		newstextbox.sendKeys(testnewsdata);
+		return this;
 	}
 
-	public void clickOnSaveNewsButton() {
+	public ManageNewsPage clickOnSaveNewsButton() {
 		saveNewsButton.click();
+		return this;
 	}
 
 	
 	@FindBy(xpath="//i[@class='icon fas fa-check']")
-	private WebElement alerbox;
+	private WebElement alertbox;
 	
 	public boolean alertboxVisiblity() {
-		return alerbox.isDisplayed();
+		return alertbox.isDisplayed();
 	}
 }

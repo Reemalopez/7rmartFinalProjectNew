@@ -16,8 +16,7 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 
 	}
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='active nav-link']")
-	private WebElement managecategoryfield;
+	
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement Newcategoryfield;
 	@FindBy(xpath = "//input[@id='category']")
@@ -30,29 +29,32 @@ public class ManageCategoryPage {
 	WebElement savecategorybutton;
 	
 
-	public void clickOnManageCategoryField() {
-		managecategoryfield.click();
-	}
+	
 
-	public void clickOnAddNewCategoryField() {
+	public ManageCategoryPage clickOnAddNewCategoryField() {
 		Newcategoryfield.click();
+		return this;
 	}
 
-	public void EnterCategory(String categoryname) {
+	public ManageCategoryPage EnterCategory(String categoryname) {
 		category.sendKeys(categoryname);
+		return this;
 	}
 
-	public void selectGroup() {
+	public ManageCategoryPage selectGroup() {
 		selectgroup.click();
+		return this;
 	}
 
-	public void uploadImage() {
+	public ManageCategoryPage uploadImage() {
 		image.sendKeys(Constant.TESTIMAGEPATH);
+		return this;
 	}
 
-	public void saveCategory() {
+	public ManageCategoryPage saveCategory() {
 		JavascriptExecutor javascript = (JavascriptExecutor) driver;
-		javascript.executeScript("arguments[0].click();", savecategorybutton);
+		javascript.executeScript("arguments[0].click();", savecategorybutton);//add in page utility class
+		return this;
 	}
 
 	
@@ -69,16 +71,19 @@ public class ManageCategoryPage {
 	@FindBy(xpath="//span[text()='Active']")
 	WebElement searchcategoryfoundmessage;
 
-	public void searchCategory() {
+	public ManageCategoryPage searchCategory() {
 		searchcategory.click();
+		return this;
 	}
 
-	public void enterCategoryname(String searchcategoryname) {
+	public ManageCategoryPage enterCategoryname(String searchcategoryname) {
 		categoryname.sendKeys(searchcategoryname);
+		return this;
 	}
 
-	public void clickOnSearchCategoryButton() {
+	public ManageCategoryPage clickOnSearchCategoryButton() {
 		searchcategorybutton.click();
+		return this;
 	}
 	public boolean getAlertMessageForSuccessfullCategoryCreation()
 	{
