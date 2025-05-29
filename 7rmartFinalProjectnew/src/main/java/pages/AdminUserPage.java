@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminUserPage {
 	public WebDriver driver;
 
@@ -46,8 +48,7 @@ public class AdminUserPage {
 	}
 
 	public AdminUserPage selectUserType() {
-		Select select = new Select(Usertypedropdown);
-		select.selectByIndex(1);
+		PageUtility.selectDropdownWithValue(Usertypedropdown,1);
 		return this;
 	}
 
@@ -85,6 +86,8 @@ public class AdminUserPage {
 		searchbutton.click();
 		return this;
 	}
+	
+	
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	private WebElement successmessage;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/user/delete?del=13862&page_ad=1']")

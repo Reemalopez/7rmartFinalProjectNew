@@ -33,4 +33,7 @@ public class WaitUtility {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
+	//wait until frame availablle , waituntil selected 
+	
+	
 }

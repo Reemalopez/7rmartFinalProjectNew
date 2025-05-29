@@ -31,7 +31,6 @@ public class AdminUserTest extends Base {
 		String newusername = randomdata.createRandomUsername();
 		String newpassword = randomdata.createRandomPassword();
 		
-		//AdminUserPage adminuser=new AdminUserPage(driver);
 		adminuser=homepage.clickOnAdminuser();
 		adminuser.clickOnNew().enternewusernameOnField(newusername).enternewPasswordOntheField(newpassword).selectUserType().clickOnsavebutton();
 
@@ -52,7 +51,6 @@ public class AdminUserTest extends Base {
 		String searchusername = ExcelUtility.getStringData(1, 0, "AdminUser");
 		String usertype = ExcelUtility.getStringData(1, 1, "AdminUser");
 		
-		//AdminUserPage adminuser=new AdminUserPage(driver);
 		adminuser=homepage.clickOnAdminuser();
 		adminuser.searchForCreatedUser().searchForUser(searchusername).selectUserTypesearch(usertype).searchUser();
 

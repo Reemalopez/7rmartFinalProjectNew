@@ -7,11 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
-	JavascriptExecutor javascript;
-	WebDriver driver;
-	public void selectDropdownWithValue(WebElement element, String value) {
-		Select object = new Select(element);
-		object.selectByValue(value);
+	static JavascriptExecutor javascript;
+	static WebDriver driver;
+	
+	public static void selectDropdownWithValue(WebElement element, int index) {
+		Select select = new Select(element);
+		select.selectByIndex(index);
 	}
 	
 	public void selectRadiobuttonAndCheckbox(WebElement element) {
@@ -23,11 +24,16 @@ public class PageUtility {
 		alert.accept();
 	}
 	
-	public void pagedown() {
+	public  void pagedown() {
 		javascript.executeScript("window.scrollBy(0,350)", "");
 	}
 	
 	public void pageup() {
 		javascript.executeScript("window.scrollBy(0,-350)", "");
+	}
+	
+	public void jsExecutorClick(WebDriver driver,WebElement elementName) {
+		JavascriptExecutor javascript = (JavascriptExecutor)driver;
+		javascript.executeScript("arguments[0].click();", elementName);
 	}
 }

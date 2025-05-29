@@ -9,7 +9,7 @@
 		<classes>
 			<class name="testScript.ManageCategoryTest">
 			<methods>
-			<include name="verifySearchCategory"></include>
+			<include name="verifyAddCategory"></include>
 			</methods>
 			</class>
 		</classes>

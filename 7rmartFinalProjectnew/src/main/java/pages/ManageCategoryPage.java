@@ -1,12 +1,12 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constants.Constant;
+import utilities.PageUtility;
 
 public class ManageCategoryPage {
 	public WebDriver driver;
@@ -52,8 +52,8 @@ public class ManageCategoryPage {
 	}
 
 	public ManageCategoryPage saveCategory() {
-		JavascriptExecutor javascript = (JavascriptExecutor) driver;
-		javascript.executeScript("arguments[0].click();", savecategorybutton);//add in page utility class
+		PageUtility page=new PageUtility();
+		page.jsExecutorClick(driver,savecategorybutton);
 		return this;
 	}
 
